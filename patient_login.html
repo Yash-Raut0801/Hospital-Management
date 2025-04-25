@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Patient Login - CityCare Hospital</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Animate.css CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="animate__animated animate__fadeInDown">
+    <div class="logo">
+      <img src="images/logo.png" alt="Hospital Logo" />
+      <h1>CityCare Hospital</h1>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="doctor_login.html">Doctor Login</a>
+      <a href="patient_login.html">Patient Login</a>
+      <a href="family_login.html">Family Login</a>
+    </nav>
+  </header>
+
+  <!-- Login Form -->
+  <section class="contact animate__animated animate__fadeInUp">
+    <h2 class="animate__animated animate__fadeInDown animate__delay-1s">Patient Login</h2>
+    <form action="patient_dashboard.html" method="get" class="animate__animated animate__fadeInUp animate__delay-1s">
+      <input type="text" name="patient_name" placeholder="Enter Your Name" required />
+      <input type="email" name="patient_email" placeholder="Enter Your Email" required />
+      <button type="submit">Login</button>
+      <a href="index.html">Back to Home</a>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="animate__animated animate__fadeInUp animate__delay-2s">
+    <p>© 2025 CityCare Hospital. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

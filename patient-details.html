@@ -1,0 +1,96 @@
+<!-- patient-details.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Details</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Simple style for the patient details page */
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f7fc;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .patient-details-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+    }
+
+    .patient-details-container h2 {
+      color: #2193b0;
+      text-align: center;
+    }
+
+    .details-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #2193b0;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="patient-details-container">
+    <h2>Patient Details</h2>
+    <table class="details-table">
+      <thead>
+        <tr>
+          <th>Field</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+      <tbody id="patient-info">
+        <!-- Patient info will be injected here -->
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    // Get patient name from the URL query parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const patientName = urlParams.get('patient');
+
+    // Insert patient-specific details (for now, this is mock data)
+    const patientInfo = {
+      "JohnDoe": { age: 30, condition: "Flu", status: "Stable", treatment: "Rest and hydration" },
+      "JaneSmith": { age: 25, condition: "Headache", status: "Under observation", treatment: "Pain relief medication" },
+      "MichaelBrown": { age: 40, condition: "Asthma", status: "Critical", treatment: "Inhaler and oxygen support" },
+    };
+
+    const patient = patientInfo[patientName];
+    const patientInfoElement = document.getElementById('patient-info');
+    
+    if (patient) {
+      patientInfoElement.innerHTML = `
+        <tr><td>Name</td><td>${patientName}</td></tr>
+        <tr><td>Age</td><td>${patient.age}</td></tr>
+        <tr><td>Condition</td><td>${patient.condition}</td></tr>
+        <tr><td>Status</td><td>${patient.status}</td></tr>
+        <tr><td>Treatment</td><td>${patient.treatment}</td></tr>
+      `;
+    } else {
+      patientInfoElement.innerHTML = "<tr><td colspan='2'>Patient not found.</td></tr>";
+    }
+  </script>
+
+</body>
+</html>

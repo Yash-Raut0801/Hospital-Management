@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hospital Management System</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f8fc;
+      overflow-x: hidden;
+    }
+
+    section {
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .stats, .facilities ul, .tabs, .appointment form, .contact form {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .stat-box, .tab, .appointment form input, .appointment form select, .contact form input, .contact form textarea {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .stat-box:hover, .tab:hover, form input:hover, form select:hover, form textarea:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+    }
+
+    h2 {
+      font-size: 2em;
+      color: #007bff;
+      position: relative;
+      display: inline-block;
+      margin-bottom: 30px;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      width: 50%;
+      height: 4px;
+      background: #007bff;
+      left: 25%;
+      bottom: -10px;
+      border-radius: 2px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      padding: 20px;
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .logo img {
+      height: 60px;
+      margin-right: 15px;
+    }
+
+    .logo-text .main-name {
+      font-size: 24px;
+      font-weight: bold;
+      color: #007bff;
+    }
+
+    .logo-text .sub-name {
+      font-size: 14px;
+      color: #555;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #007bff;
+      padding: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: #fff;
+      transition: 0.3s;
+      transform: translateX(-50%);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    footer {
+      background: #007bff;
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="animate__animated animate__fadeInDown">
+    <div class="logo">
+      <img src="images/logo.png" alt="Hospital Logo" />
+      <div class="logo-text">
+        <div class="main-name">Grand Medical Foundation</div>
+        <div class="sub-name">Ruby Hall Clinic</div>
+      </div>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="doctor_login.html">Doctor Login</a>
+      <a href="patient_login.html">Patient Login</a>
+      <a href="family_login.html">Family Login</a>
+    </nav>
+  </header>
+
+  <section class="stats animate__animated animate__fadeInUp animate__delay-1s">
+    <div class="stat-box">
+      <h2>600</h2>
+      <p>Beds Available</p>
+    </div>
+    <div class="stat-box">
+      <h2>15,000+</h2>
+      <p>Patients Treated</p>
+    </div>
+    <div class="stat-box">
+      <h2>1,00,000+</h2>
+      <p>Successful Surgeries</p>
+    </div>
+  </section>
+
+  <section class="facilities animate__animated animate__zoomIn animate__delay-2s">
+    <h2>Our Facilities</h2>
+    <ul>
+      <li>24/7 Emergency</li>
+      <li>Advanced Operation Theaters</li>
+      <li>Ambulance Service</li>
+      <li>Pharmacy</li>
+      <li>Diagnostic Labs</li>
+    </ul>
+  </section>
+
+  <section class="departments animate__animated animate__fadeInLeft animate__delay-3s">
+    <h2>Departments</h2>
+    <p>Cardiology, Neurology, Pediatrics, Orthopedics, Oncology, and more...</p>
+  </section>
+
+  <section class="tabs animate__animated animate__fadeInRight animate__delay-4s">
+    <div class="tab">
+      <h3>🚑 Ambulance</h3>
+      <p>Contact: +91 705 770 0700</p>
+    </div>
+    <div class="tab">
+      <h3>🩸 Blood Donation</h3>
+      <p>Register at the helpdesk or call 020-66455100</p>
+    </div>
+  </section>
+
+  <section class="appointment animate__animated animate__zoomIn animate__delay-5s">
+    <h2>Book an Appointment</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <input type="tel" placeholder="Your Phone" required />
+      <select required>
+        <option value="">Select Department</option>
+        <option>Cardiology</option>
+        <option>Neurology</option>
+        <option>Pediatrics</option>
+      </select>
+      <input type="date" required />
+      <button type="submit">Book Now</button>
+    </form>
+  </section>
+
+  <section class="contact animate__animated animate__fadeInUp animate__delay-6s">
+    <h2>Contact Us</h2>
+    <form>
+      <input type="text" placeholder="Name" required />
+      <input type="email" placeholder="Email" required />
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <section class="map animate__animated animate__fadeIn animate__delay-7s">
+    <h2>Find Us</h2>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30265.92006951082!2d73.85468312984052!3d18.5180531695409!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c0f827512e15%3A0x47538bcedae49c07!2sRuby%20Hall%20Clinic%20-%20Sassoon%20Road!5e0!3m2!1sen!2sin!4v1745527026208!5m2!1sen!2sin"
+      width="1300" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </section>
+
+  <footer>
+    <p>© 2025 Ruby Hall Clinic. All rights reserved.</p>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doctor Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f7fc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .dashboard-container {
+      width: 80%;
+      max-width: 1200px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .header h1 {
+      color: #2193b0;
+      font-size: 2em;
+      margin: 0;
+    }
+
+    .header button {
+      background-color: #2193b0;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .header button:hover {
+      background-color: #176c8e;
+    }
+
+    .sections {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .section {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      flex-basis: 48%;
+    }
+
+    .section h3 {
+      color: #2193b0;
+    }
+
+    .section p {
+      font-size: 16px;
+      color: #555;
+    }
+
+    .appointments-table, .patients-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #2193b0;
+      color: white;
+    }
+
+    tr:hover {
+      background-color: #f4f4f4;
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard-container">
+    <div class="header">
+      <h1>Doctor Dashboard</h1>
+      <button onclick="window.location.href='index.html'">Logout</button>
+    </div>
+
+    <div class="sections">
+      <!-- Appointments Section -->
+      <div class="section">
+        <h3>Upcoming Appointments</h3>
+        <table class="appointments-table">
+          <thead>
+            <tr>
+              <th>Patient</th>
+              <th>Time</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>John Doe</td>
+              <td>10:00 AM</td>
+              <td><button onclick="window.location.href='patient-details.html?patient=JohnDoe'">View</button></td>
+            </tr>
+            <tr>
+              <td>Jane Smith</td>
+              <td>11:00 AM</td>
+              <td><button onclick="window.location.href='patient-details.html?patient=JaneSmith'">View</button></td>
+            </tr>
+            <tr>
+              <td>Michael Brown</td>
+              <td>01:00 PM</td>
+              <td><button onclick="window.location.href='patient-details.html?patient=MichaelBrown'">View</button></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Add Appointment Button -->
+        <button onclick="document.getElementById('add-appointment-form').style.display = 'block'">Add Appointment</button>
+
+        <!-- Add Appointment Form -->
+        <div id="add-appointment-form" style="display:none; padding: 20px; background-color: #fff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 10px;">
+          <h3>Add New Appointment</h3>
+          <form onsubmit="return addAppointment(event)">
+            <input type="text" id="patient-name" placeholder="Patient Name" required><br>
+            <input type="time" id="appointment-time" required><br>
+            <button type="submit">Add Appointment</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Patients Section -->
+      <div class="section">
+        <h3>Patients List</h3>
+        <table class="patients-table">
+          <thead>
+            <tr>
+              <th>Patient Name</th>
+              <th>Condition</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>John Doe</td>
+              <td>Stable</td>
+              <td>In Treatment</td>
+            </tr>
+            <tr>
+              <td>Jane Smith</td>
+              <td>Critical</td>
+              <td>Under Observation</td>
+            </tr>
+            <tr>
+              <td>Michael Brown</td>
+              <td>Stable</td>
+              <td>In Treatment</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript for Adding Appointment -->
+  <script>
+    function addAppointment(event) {
+      event.preventDefault(); // Prevent form from submitting and refreshing the page
+
+      const patientName = document.getElementById('patient-name').value;
+      const appointmentTime = document.getElementById('appointment-time').value;
+
+      // Check if both fields are filled
+      if (patientName && appointmentTime) {
+        const appointmentsTableBody = document.querySelector('.appointments-table tbody');
+        const newRow = document.createElement('tr');
+
+        newRow.innerHTML = `
+          <td>${patientName}</td>
+          <td>${appointmentTime}</td>
+          <td><button onclick="window.location.href='patient-details.html?patient=${patientName}'">View</button></td>
+        `;
+
+        appointmentsTableBody.appendChild(newRow);
+
+        // Clear form and close the form after submission
+        document.getElementById('patient-name').value = '';
+        document.getElementById('appointment-time').value = '';
+        document.getElementById('add-appointment-form').style.display = 'none';
+      } else {
+        alert('Please fill out both fields.');
+      }
+    }
+  </script>
+</body>
+</html>

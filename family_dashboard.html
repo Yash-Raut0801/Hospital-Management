@@ -1,0 +1,175 @@
+<!-- family_dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Family Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Add some styles here, similar to Doctor Dashboard */
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f7fc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .dashboard-container {
+      width: 80%;
+      max-width: 1200px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .header h1 {
+      color: #2193b0;
+      font-size: 2em;
+      margin: 0;
+    }
+
+    .header button {
+      background-color: #2193b0;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .header button:hover {
+      background-color: #176c8e;
+    }
+
+    .sections {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .section {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      flex-basis: 48%;
+    }
+
+    .section h3 {
+      color: #2193b0;
+    }
+
+    .section p {
+      font-size: 16px;
+      color: #555;
+    }
+
+    .appointments-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #2193b0;
+      color: white;
+    }
+
+    tr:hover {
+      background-color: #f4f4f4;
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard-container">
+    <div class="header">
+      <h1>Family Dashboard</h1>
+      <button onclick="window.location.href='index.html'">Logout</button>
+    </div>
+
+    <div class="sections">
+      <!-- Patient Details Section -->
+      <div class="section">
+        <h3>Patient Information</h3>
+        <p id="patient-info">Loading patient info...</p>
+      </div>
+
+      <!-- Appointments Section -->
+      <div class="section">
+        <h3>Upcoming Appointments</h3>
+        <table class="appointments-table">
+          <thead>
+            <tr>
+              <th>Patient</th>
+              <th>Time</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="appointments-table">
+            <!-- Patient appointments will be loaded here -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Get the family name from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const familyName = urlParams.get("family");
+
+    // Display the family name in the dashboard
+    document.querySelector('.header h1').innerText = `${familyName}'s Dashboard`;
+
+    // Example data (you can replace this with actual data from a backend if needed)
+    const patientName = "John Doe"; // This could be dynamically set for each family
+    const appointments = [
+      { patient: "John Doe", time: "10:00 AM" },
+      { patient: "John Doe", time: "02:00 PM" }
+    ];
+
+    // Display patient information (this could also be dynamic based on the family member)
+    document.getElementById("patient-info").innerHTML = `
+      <strong>Name:</strong> ${patientName}<br>
+      <strong>Condition:</strong> Stable
+    `;
+
+    // Populate the appointments table
+    const appointmentsTable = document.getElementById("appointments-table");
+    appointments.forEach(appointment => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${appointment.patient}</td>
+        <td>${appointment.time}</td>
+        <td><button onclick="viewAppointment('${appointment.patient}')">View</button></td>
+      `;
+      appointmentsTable.appendChild(row);
+    });
+
+    // Function to view appointment details
+    function viewAppointment(patientName) {
+      window.location.href = `patient-details.html?patient=${patientName}`;
+    }
+  </script>
+</body>
+</html>

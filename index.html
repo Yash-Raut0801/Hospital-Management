@@ -136,20 +136,30 @@
 <body>
   <header class="animate__animated animate__fadeInDown">
     <div class="logo">
-      <img src="logo.png" alt="Hospital Logo" />
+      <img src="images/logo.png" alt="Hospital Logo" />
       <div class="logo-text">
         <div class="main-name">Grand Medical Foundation</div>
         <div class="sub-name">Ruby Hall Clinic</div>
       </div>
     </div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="doctor_login.html">Doctor Login</a>
-      <a href="patient_login.html">Patient Login</a>
-      <a href="family_login.html">Family Login</a>
-    </nav>
+    <div style="flex: 1; display: flex; justify-content: space-between; align-items: center;">
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="doctor_login.html">Doctor Login</a>
+        <a href="patient_login.html">Patient Login</a>
+        <a href="family_login.html">Family Login</a>
+      </nav>
+      <form id="searchForm" style="display: flex; align-items: center; margin-left: 20px;">
+        <input type="text" id="searchInput" placeholder="Search..." 
+               style="padding: 5px 10px; border-radius: 6px; border: 1px solid #ccc; font-size: 14px;">
+        <button type="submit" style="margin-left: 8px; padding: 5px 12px; border-radius: 6px; background-color: white; color: #007bff; border: 2px solid #007bff; cursor: pointer; font-weight: bold;">
+          Search
+        </button>
+      </form>
+    </div>
   </header>
+  
 
   <section class="stats animate__animated animate__fadeInUp animate__delay-1s">
     <div class="stat-box">
@@ -232,6 +242,52 @@
   <footer>
     <p>© 2025 Ruby Hall Clinic. All rights reserved.</p>
   </footer>
+  <script>
+    document.getElementById('searchForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const query = document.getElementById('searchInput').value.trim();
+      if (query) {
+        alert('You searched for: ' + query);
+      } else {
+        alert('Please enter something to search!');
+      }
+    });
+  </script>
+<!-- Chatbot Icon and Chat Window -->
+<div id="chatbot-container">
+  <div id="chatbot-icon">💬</div>
+  <div id="chatbot-window">
+    <div id="chatbot-header">Chat with us!</div>
+    <div id="chatbot-messages"></div>
+    <input type="text" id="chatbot-input" placeholder="Type your message..." />
+    <button id="chatbot-send">Send</button>
+  </div>
+</div>
+
+<!-- Chatbot Script -->
+<script>
+  const chatbotIcon = document.getElementById('chatbot-icon');
+  const chatbotWindow = document.getElementById('chatbot-window');
+  const chatbotMessages = document.getElementById('chatbot-messages');
+  const chatbotInput = document.getElementById('chatbot-input');
+  const chatbotSend = document.getElementById('chatbot-send');
+
+  chatbotIcon.onclick = () => {
+    chatbotWindow.classList.toggle('open');
+  };
+
+  chatbotSend.onclick = () => {
+    const msg = chatbotInput.value.trim();
+    if (msg) {
+      chatbotMessages.innerHTML += `<div><strong>You:</strong> ${msg}</div>`;
+      chatbotMessages.innerHTML += `<div><strong>Bot:</strong> Thanks for reaching out! We'll get back to you shortly.</div>`;
+      chatbotInput.value = '';
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
+  };
+</script>
+
+
 </body>
 
 </html>

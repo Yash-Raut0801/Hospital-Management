@@ -111,3 +111,30 @@ window.addEventListener("DOMContentLoaded", function() {
         window.location.href = `patient-details.html?patient=${patientName}`;
     };
 });
+// Donation Form Popup Script
+function openDonationForm() {
+    document.getElementById("donation-form-popup").classList.remove("hidden");
+  }
+  
+  function closeDonationForm() {
+    document.getElementById("donation-form-popup").classList.add("hidden");
+  }
+  // JavaScript (script.js) to handle form submission
+document.getElementById('donationForm').addEventListener('submit', function (e) {
+  e.preventDefault(); // Prevent form from submitting the traditional way
+
+  const formData = new FormData(this);
+  const amount = formData.get('amount');
+  const name = formData.get('name');
+  const email = formData.get('email');
+  const phone = formData.get('phone');
+  const address = formData.get('address');
+  const pan = formData.get('pan');
+  const anonymous = formData.get('anonymous') ? "Yes" : "No";
+
+  // Here you can send the data to your server or handle it as needed
+  console.log('Donation Details:', { amount, name, email, phone, address, pan, anonymous });
+
+  // You can display a confirmation message or redirect after successful submission
+  alert('Thank you for your donation!');
+});

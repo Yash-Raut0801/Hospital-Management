@@ -1,18 +1,106 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>Register as Patient</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    body {
+      background: #f0f2f5;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: white;
+      padding: 10px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    header {
+      background: url('header_image.jpg') no-repeat center center/cover;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      color: #fff;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 60px;
+      margin-right: 10px;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: #333;
+    }
+
+    .logo-text .main-name {
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .logo-text .sub-name {
+      font-size: 14px;
+      color: #666;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #0077cc;
+      font-weight: bold;
+      background: transparent;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background: #0077cc;
+      color: white;
+    }
+
+    .title-center {
+      text-align: center;
+      margin: 30px 10px 0 10px;
+      font-size: 30px;
+      font-weight: bold;
+      color: #333;
+    }
+
     .form-box {
-      background: #f9f9f9;
-      padding: 20px;
-      margin: 20px auto;
+      background: #fff;
+      padding: 30px 20px;
+      margin: 30px auto;
       width: 90%;
       max-width: 400px;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .form-box h3 {
+      margin-bottom: 20px;
+      color: #333;
+      text-align: center;
     }
 
     .form-box input, .form-box button {
@@ -28,49 +116,65 @@
       color: white;
       font-weight: bold;
       cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .form-box button:hover {
+      background: #005fa3;
     }
   </style>
 </head>
+
 <body>
-  <header>
-    <img src="images/logo.png" alt="Hospital Logo" style="height: 60px;">
-    <h1>Patient Registration</h1>
-    <nav>
-      <a href="index.html">Home</a>
-    </nav>
-  </header>
 
-  <main>
-    <div class="form-box">
-      <h3>Register Patient</h3>
-      <input type="text" id="name" placeholder="Full Name" required>
-      <input type="number" id="age" placeholder="Age" required>
-      <input type="text" id="gender" placeholder="Gender" required>
-      <input type="text" id="disease" placeholder="Disease / Condition" required>
-      <input type="text" id="contact" placeholder="Contact Number" required>
-      <input type="email" id="email" placeholder="Email Address" required>
-      <button onclick="registerPatient()">Register</button>
+<header>
+  <div class="logo">
+    <img src="logo.png" alt="Hospital Logo">
+    <div class="logo-text">
+      <div class="main-name">Grand Medical Foundation</div>
+      <div class="sub-name">Ruby Hall Clinic</div>
     </div>
-  </main>
+  </div>
 
-  <script>
-    function registerPatient() {
-      const patient = {
-        name: document.getElementById("name").value,
-        age: document.getElementById("age").value,
-        gender: document.getElementById("gender").value,
-        disease: document.getElementById("disease").value,
-        contact: document.getElementById("contact").value,
-        email: document.getElementById("email").value
-      };
+  <nav>
+    <a href="index.html">Home</a>
+  </nav>
+</header>
 
-      let patients = JSON.parse(localStorage.getItem("patients")) || [];
-      patients.push(patient);
-      localStorage.setItem("patients", JSON.stringify(patients));
+<h1 class="title-center">Patient Registration</h1>
 
-      alert("Patient registered successfully!");
-      window.location.href = "patient_dashboard.html";
-    }
-  </script>
+<main>
+  <div class="form-box">
+    <h3>Register Patient</h3>
+    <input type="text" id="name" placeholder="Full Name" required>
+    <input type="number" id="age" placeholder="Age" required>
+    <input type="text" id="gender" placeholder="Gender" required>
+    <input type="text" id="disease" placeholder="Disease / Condition" required>
+    <input type="text" id="contact" placeholder="Contact Number" required>
+    <input type="email" id="email" placeholder="Email Address" required>
+    <button onclick="registerPatient()">Register</button>
+  </div>
+</main>
+
+<script>
+  function registerPatient() {
+    const patient = {
+      name: document.getElementById("name").value,
+      age: document.getElementById("age").value,
+      gender: document.getElementById("gender").value,
+      disease: document.getElementById("disease").value,
+      contact: document.getElementById("contact").value,
+      email: document.getElementById("email").value
+    };
+
+    let patients = JSON.parse(localStorage.getItem("patients")) || [];
+    patients.push(patient);
+    localStorage.setItem("patients", JSON.stringify(patients));
+
+    alert("Patient registered successfully!");
+    window.location.href = "patient_dashboard.html";
+  }
+</script>
+
 </body>
 </html>

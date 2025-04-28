@@ -378,4 +378,217 @@
       padding: 15px;
   }
 }
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
 
+.logo {
+  background: white;
+  border-radius: 20px;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+  height: 50px;
+  margin-right: 10px;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-name {
+  font-weight: bold;
+  font-size: 20px;
+  color: #1b9cf1;
+}
+
+.sub-name {
+  font-size: 14px;
+  color: #666;
+}
+
+nav {
+  display: flex;
+  gap: 15px;
+}
+
+nav a {
+  color: #f2f6f8;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.donation-logo {
+  display: flex;
+  justify-content: center; /* Centers the logo horizontally */
+  align-items: center; /* Centers the content vertically within the logo container */
+  text-align: center;
+  background: white;
+  border-radius: 15px;
+  padding: 10px 15px;
+  display: inline-block;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px; /* Adds space between logo and heading */
+  width: 100%; /* Ensures the logo container takes full width */
+}
+
+.donation-logo img {
+  height: 40px;
+  margin-bottom: 5px;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.main-name {
+  font-weight: bold;
+  font-size: 18px;
+  color: #333;
+}
+
+.sub-name {
+  font-size: 12px;
+  color: #666;
+}
+/* Logo Styling */
+.donation-logo img {
+  width: 100px; /* Adjust the size of the logo */
+  height: auto; /* Maintain aspect ratio */
+  margin-bottom: 20px; /* Space between logo and text */
+}
+
+/* Logo Text Styling */
+.logo-text .main-name {
+  font-size: 22px;
+  font-weight: bold;
+  color: #1b9cf1;
+}
+
+.logo-text .sub-name {
+  font-size: 16px;
+  color: #333;
+}
+#chatbot-icon img {
+  width: 50px; /* Adjust size as needed */
+  height: auto;
+  cursor: pointer; /* So it looks clickable */
+  border-radius: 50%; /* Optional, if you want a round icon */
+}
+header {
+  background-image: url('header_image.jpg'); /* replace with your background image path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll; /* You can change to 'fixed' for parallax effect */
+  position: relative;
+  padding: 20px; /* To give breathing space */
+}
+
+/* Optional: Add a light overlay to make it softer and tabs more readable */
+header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.6); /* white light overlay */
+  z-index: 0;
+}
+
+/* Make sure all header contents (logo, nav, etc.) are above the background */
+header > * {
+  position: relative;
+  z-index: 1;
+}
+.image-gallery {
+  padding: 40px 20px;
+  text-align: center;
+  background: #f8f9fa; /* light background */
+}
+
+.gallery-title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #007bff;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+.gallery-item {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.gallery-item p {
+  margin: 15px;
+  font-size: 16px;
+  color: #333;
+}
+
+.gallery-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+.about-header {
+  background-image: url('header_image.jpg'); /* your header background image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-header .logo {
+  background: white;
+  border-radius: 20px;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-bottom: 10px;
+}
+
+.about-header nav {
+  background-color: #007bff;
+  border-radius: 20px;
+  padding: 10px 20px;
+  display: flex;
+  gap: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.about-header nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}

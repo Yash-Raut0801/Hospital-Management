@@ -1,11 +1,10 @@
-<!-- family_dashboard.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Family Dashboard</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles.css">
   <style>
     /* Add some styles here, similar to Doctor Dashboard */
     body {
@@ -25,6 +24,28 @@
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       padding: 20px;
+    }
+
+    /* Logo Section */
+    .donation-logo {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .donation-logo img {
+      width: 100px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .logo-text .main-name {
+      font-size: 20px;
+      color: #2193b0;
+    }
+
+    .logo-text .sub-name {
+      font-size: 14px;
+      color: #555;
     }
 
     .header {
@@ -102,6 +123,15 @@
 </head>
 <body>
   <div class="dashboard-container">
+    <!-- Logo Section -->
+    <div class="donation-logo">
+      <img src="logo.png" alt="Hospital Logo">
+      <div class="logo-text">
+        <div class="main-name">Grand Medical Foundation</div>
+        <div class="sub-name">Ruby Hall Clinic</div>
+      </div>
+    </div>
+
     <div class="header">
       <h1>Family Dashboard</h1>
       <button onclick="window.location.href='index.html'">Logout</button>
@@ -149,7 +179,7 @@
     ];
 
     // Display patient information (this could also be dynamic based on the family member)
-    document.getElementById("patient-info").innerHTML = `
+    document.getElementById("patient-info").innerHTML = ` 
       <strong>Name:</strong> ${patientName}<br>
       <strong>Condition:</strong> Stable
     `;

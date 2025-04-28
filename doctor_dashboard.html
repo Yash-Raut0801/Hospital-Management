@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Doctor Dashboard</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles.css">
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -23,6 +23,28 @@
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       padding: 20px;
+    }
+
+    /* Logo Styling */
+    .donation-logo {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .donation-logo img {
+      width: 100px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .logo-text .main-name {
+      font-size: 20px;
+      color: #2193b0;
+    }
+
+    .logo-text .sub-name {
+      font-size: 14px;
+      color: #555;
     }
 
     .header {
@@ -100,6 +122,15 @@
 </head>
 <body>
   <div class="dashboard-container">
+    <!-- Logo Section -->
+    <div class="donation-logo">
+      <img src="logo.png" alt="Hospital Logo">
+      <div class="logo-text">
+        <div class="main-name">Grand Medical Foundation</div>
+        <div class="sub-name">Ruby Hall Clinic</div>
+      </div>
+    </div>
+
     <div class="header">
       <h1>Doctor Dashboard</h1>
       <button onclick="window.location.href='index.html'">Logout</button>
@@ -119,17 +150,17 @@
           </thead>
           <tbody>
             <tr>
-              <td>John Doe</td>
+              <td>Yash Raut</td>
               <td>10:00 AM</td>
               <td><button onclick="window.location.href='patient-details.html?patient=JohnDoe'">View</button></td>
             </tr>
             <tr>
-              <td>Jane Smith</td>
+              <td>Sree Venkat</td>
               <td>11:00 AM</td>
               <td><button onclick="window.location.href='patient-details.html?patient=JaneSmith'">View</button></td>
             </tr>
             <tr>
-              <td>Michael Brown</td>
+              <td>Parth Shah</td>
               <td>01:00 PM</td>
               <td><button onclick="window.location.href='patient-details.html?patient=MichaelBrown'">View</button></td>
             </tr>
@@ -163,17 +194,17 @@
           </thead>
           <tbody>
             <tr>
-              <td>John Doe</td>
+              <td>Yash Raut</td>
               <td>Stable</td>
               <td>In Treatment</td>
             </tr>
             <tr>
-              <td>Jane Smith</td>
+              <td>Sree Venkat</td>
               <td>Critical</td>
               <td>Under Observation</td>
             </tr>
             <tr>
-              <td>Michael Brown</td>
+              <td>Parth Shah</td>
               <td>Stable</td>
               <td>In Treatment</td>
             </tr>
